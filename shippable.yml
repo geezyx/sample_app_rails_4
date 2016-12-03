@@ -1,7 +1,7 @@
 language: ruby
 
-ruby:
-  - 2.3.0
+rvm:
+  - 2.2.0
 
 build:
   pre_ci:
