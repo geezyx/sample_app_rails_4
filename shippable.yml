@@ -1,5 +1,8 @@
 language: ruby
 
+ruby:
+  - 2.3.0
+
 build:
   pre_ci:
     - echo "this is master branch"
