@@ -1,0 +1,16 @@
+language: ruby
+
+build:
+  pre_ci:
+    - echo "this is master branch"
+
+  ci:
+    - cp config/database.yml.example config/database.yml
+    - bundle install --without production
+    - bundle exec rake db:migrate
+    - bundle exec rake db:test:prepare
+    - bundle exec rspec spec/
+
+  post_ci:
+    - ls -a
+    - pwd
