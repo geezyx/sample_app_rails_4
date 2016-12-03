@@ -1,4 +1,14 @@
 language: ruby
 
 rvm:
-  - 2.2.0
+  - 2.2.2
+  
+build:
+  ci:
+   - gem install bundler
+   - cp config/database.yml.example config/database.yml
+   - bundle install --without production
+   - bundle exec rake db:migrate
+   - bundle exec rake db:test:prepare
+   - bundle exec rspec spec/
+   
